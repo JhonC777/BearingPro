@@ -49,7 +49,7 @@ async function seed() {
   await db.delete(products);
   await db.delete(categories);
   console.log("Seeding categories...");
-  const insertedCategories = await db.insert(categories).values(categoryData).$returningId();
+  const insertedCategories = await db.insert(categories).values(categorydata).$returningId();
   const catMap = new Map<string, number>();
   categoryData.forEach((cat, i) => catMap.set(cat.slug, insertedCategories[i].id));
 
